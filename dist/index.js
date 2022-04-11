@@ -4256,11 +4256,12 @@ new FtpDeploy()
         localRoot: core.getInput('local_folder') || 'dist', // __dirname + '/local-folder',
         deleteRemote: JSON.parse(core.getInput('cleanup')) || false, // If true, delete ALL existing files at destination before uploading
         include: JSON.parse(core.getInput('include')) || ['*', '**/*'], // this would upload everything except dot files
-        exclude: JSON.parse(core.getInput('exclude')) || ['node_modules/**', 'node_modules/**/.*', '.git/**'], // e.g. exclude sourcemaps, and ALL files in node_modules (including dot files)
+        exclude: core.getInput('exclude') || ['node_modules/**', 'node_modules/**/.*', '.git/**'], // e.g. exclude sourcemaps, and ALL files in node_modules (including dot files)
         forcePasv: JSON.parse(core.getInput('pasive')) || true // Passive mode is forced (EPSV command is not sent)
     }) 
     .then(response => core.info('Deploy finished:', response))
     .catch(error => core.error(error));
+
 
 /***/ }),
 
@@ -38840,7 +38841,7 @@ Promise.reduce = function (promises, fn, initialValue, _each) {
 /***/ 724:
 /***/ (function(module) {
 
-module.exports = {"name":"ssh2-streams","version":"0.4.10","author":"Brian White <mscdex@mscdex.net>","description":"SSH2 and SFTP(v3) client/server protocol streams for node.js","main":"./index","engines":{"node":">=5.2.0"},"dependencies":{"asn1":"~0.2.0","bcrypt-pbkdf":"^1.0.2","streamsearch":"~0.1.2"},"scripts":{"test":"node test/test.js"},"keywords":["ssh","ssh2","sftp","secure","protocol","streams","client","server"],"licenses":[{"type":"MIT","url":"http://github.com/mscdex/ssh2-streams/raw/master/LICENSE"}],"repository":{"type":"git","url":"http://github.com/mscdex/ssh2-streams.git"}};
+module.exports = {"_args":[["ssh2-streams@0.4.10","/workspaces/ftp-deployer"]],"_from":"ssh2-streams@0.4.10","_id":"ssh2-streams@0.4.10","_inBundle":false,"_integrity":"sha512-8pnlMjvnIZJvmTzUIIA5nT4jr2ZWNNVHwyXfMGdRJbug9TpI3kd99ffglgfSWqujVv/0gxwMsDn9j9RVst8yhQ==","_location":"/ssh2-streams","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"ssh2-streams@0.4.10","name":"ssh2-streams","escapedName":"ssh2-streams","rawSpec":"0.4.10","saveSpec":null,"fetchSpec":"0.4.10"},"_requiredBy":["/ssh2"],"_resolved":"https://registry.npmjs.org/ssh2-streams/-/ssh2-streams-0.4.10.tgz","_spec":"0.4.10","_where":"/workspaces/ftp-deployer","author":{"name":"Brian White","email":"mscdex@mscdex.net"},"bugs":{"url":"https://github.com/mscdex/ssh2-streams/issues"},"dependencies":{"asn1":"~0.2.0","bcrypt-pbkdf":"^1.0.2","streamsearch":"~0.1.2"},"description":"SSH2 and SFTP(v3) client/server protocol streams for node.js","engines":{"node":">=5.2.0"},"homepage":"https://github.com/mscdex/ssh2-streams#readme","keywords":["ssh","ssh2","sftp","secure","protocol","streams","client","server"],"licenses":[{"type":"MIT","url":"http://github.com/mscdex/ssh2-streams/raw/master/LICENSE"}],"main":"./index","name":"ssh2-streams","repository":{"type":"git","url":"git+ssh://git@github.com/mscdex/ssh2-streams.git"},"scripts":{"test":"node test/test.js"},"version":"0.4.10"};
 
 /***/ }),
 
